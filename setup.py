@@ -42,7 +42,7 @@ for package in packages:
     filtered_packages.append(package)
 
 setup(
-    name="PySiddhi",
+    name="PySiddhi-localstack",
     version="5.1.0",
     packages=filtered_packages,
     python_requires='>=2.7, >=3.6',
