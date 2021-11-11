@@ -20,10 +20,10 @@ CC = g++
 JAVAHOME = ${JAVA_HOME}
 
 # Please provide the python path according to the python version of the machine
-LINUX_PYTHON_PATH = /usr/include/python
+LINUX_PYTHON_PATH = /usr/include/python3.7
 
 # Please provide the python path according to the python version of the machine
-MACOS_PYTHON_PATH = /usr/local/var/homebrew/linked/python/Frameworks/Python.framework/Versions/3.7/include/python3.7m
+MACOS_PYTHON_PATH = /usr/local/var/homebrew/linked/python/Frameworks/Python.framework/Versions/3.7/include/python3.7
 
 OS = ${shell uname}
 

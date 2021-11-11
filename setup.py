@@ -16,6 +16,7 @@
 
 import os
 from subprocess import check_call
+
 from setuptools import setup, find_packages
 from setuptools.command.install import install
 
@@ -49,13 +50,22 @@ def package_files(directory):
             paths.append(os.path.join('..', path, filename))
     return paths
 
+
 setup(
     name="PySiddhi-localstack",
-    version="5.1.0.1",
+    version="5.1.0.post1",
     packages=filtered_packages,
     python_requires='>=2.7, >=3.6',
-    install_requires=["requests","pyjnius", "future", "enum34 ; python_version<'4'"],
+    install_requires=["requests", "pyjnius", "future", "enum34 ; python_version<'4'"],
     include_package_data=True,
+    package_data={
+        "PySiddhi": [
+            "../__PySiddhiProxy/target/lib/*.jar",
+            "../__PySiddhiProxy/target/*.jar",
+            "../__PySiddhiProxy/*.so",
+            "../__PySiddhiProxy/*.dylib"
+        ],
+    },
     # metadata for upload to PyPI
     author="WSO2",
     author_email="dev@wso2.org",
