@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# run this via
+#  docker run --rm -it --workdir=/opt/code -v $(pwd):/opt/code docker.io/library/python:3.8-buster bash
+#  ./build.sh
+
 # install build dependencies
 apt update
 apt install -y build-essential openjdk-11-jdk python3-dev libboost-python-dev maven
