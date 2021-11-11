@@ -41,19 +41,21 @@ for package in packages:
         continue
     filtered_packages.append(package)
 
+
+def package_files(directory):
+    paths = []
+    for (path, directories, filenames) in os.walk(directory):
+        for filename in filenames:
+            paths.append(os.path.join('..', path, filename))
+    return paths
+
 setup(
     name="PySiddhi-localstack",
-    version="5.1.0",
+    version="5.1.0.1",
     packages=filtered_packages,
     python_requires='>=2.7, >=3.6',
     install_requires=["requests","pyjnius", "future", "enum34 ; python_version<'4'"],
-    package_data={
-        "PySiddhi": ["../__PySiddhiProxy/target/lib/*.jar",
-                      "../__PySiddhiProxy/target/*.jar",
-                      "../__PySiddhiProxy/*.so",
-                      "../__PySiddhiProxy/*.dylib"]
-    },
-
+    include_package_data=True,
     # metadata for upload to PyPI
     author="WSO2",
     author_email="dev@wso2.org",
@@ -62,7 +64,7 @@ setup(
     cmdclass={
         'install': PostInstallCommand,
     },
-    url="https://github.com/siddhi-io/PySiddhi",
+    url="https://github.com/localstack/PySiddhi",
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
